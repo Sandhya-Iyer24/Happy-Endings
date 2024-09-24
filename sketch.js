@@ -83,9 +83,7 @@ function draw() {
     if ( // if the start button is clicked
       mouseIsPressed &&
       mouseX > windowWidth * 0.31 &&
-      mouseX < windowWidth * 0.67 &&
-      mouseY > windowHeight * 0.53 &&
-      mouseY < windowHeight * 0.6
+      mouseX < windowWidth * 0.67 
     ) {
       showSplash = false; // transition to the map screen
       showMap = true;
@@ -127,14 +125,13 @@ function draw() {
       windowWidth * 0.55
     ); // put the toolbar at the top
 
-    ellipse(circleX, circleY, radius * 5, radius * 5); //
     if (!Frankdone) {
       fill(255, 50);
       circle(circX2, circY2, radius2 * 6);
-      // Draw the circle at its current position
-      fill(255, 0); // replace alphaValue with the actual alpha value
+      // transparent target circle
+      fill(255, 0);
       noStroke();
-      circle(circX, circY, radius * 2);
+      circle(circX, circY, radius * 2); // draggable circle with the image
       imageMode(CENTER);
       image(girl, circX, circY, windowWidth / 10, windowWidth / 5);
       imageMode(CORNER);
@@ -143,47 +140,43 @@ function draw() {
         circX = mouseX + offsetX;
         circY = mouseY + offsetY;
       }
-      if (!storyClickF) {
+      if (!storyClickF) { // if user clicks through story, stop showing it
         image(storyF, 0, 0, windowWidth, windowWidth / 1.3);
         if (
           mouseIsPressed &&
           mouseX > windowWidth * 0.31 &&
-          mouseX < windowWidth * 0.67 &&
-          mouseY > windowHeight * 0.71 &&
-          mouseY < windowHeight * 0.77
+          mouseX < windowWidth * 0.67
         ) {
           storyClickF = true;
         }
       }
-    } else {
+    } else { // transition to second scene when complete
       showFrank1 = false;
       showFrank2 = true;
     }
   }
 
   if (showTitanic1) {
-    image(titanic1, 0, 0, windowWidth, windowWidth / 1.3);
+    image(titanic1, 0, 0, windowWidth, windowWidth / 1.3); // show the first titanic scene
     if (!Titanicdone) {
-      if (
+      if ( // if the user clicks the button to complete the scene
         mouseIsPressed &&
         mouseX > windowWidth * 0.69 &&
         mouseX < windowWidth &&
         mouseY > windowHeight * 0.31 &&
         mouseY < windowHeight * 0.54
-      ) {
+      ) { // transition to the second scene
         showTitanic1 = false;
         showTitanic2 = true;
         Titanicdone = true;
       }
 
-      if (!storyClickT) {
+      if (!storyClickT) { // if user clicks through story, stop showing it
         image(storyT, 0, 0, windowWidth, windowWidth / 1.3);
         if (
           mouseIsPressed &&
           mouseX > windowWidth * 0.31 &&
-          mouseX < windowWidth * 0.67 &&
-          mouseY > windowHeight * 0.71 &&
-          mouseY < windowHeight * 0.77
+          mouseX < windowWidth * 0.67
         ) {
           storyClickT = true;
         }
@@ -192,110 +185,106 @@ function draw() {
   }
 
   if (showRomeo1) {
-    image(romeo1, 0, 0, windowWidth, windowWidth / 1.3);
-    image(
+    image(romeo1, 0, 0, windowWidth, windowWidth / 1.3); // show the first romeo and juliet scene
+    image( // put the toolbar at the top
       toolbar,
       windowWidth * 0.22,
       windowHeight * -0.09,
       windowWidth * 0.45,
       windowWidth * 0.35
     );
-    //image(letter, circleX, circleY, windowWidth / 3, windowWidth / 3.9);
-    ellipse(circleX, circleY, radius * 5, radius * 5);
+
     if (!Romeodone) {
       fill(255, 50);
-      circle(circX2, circY2, radius2 * 3);
-      // Draw the circle at its current position
-      fill(255, 0); // replace alphaValue with the actual alpha value
+      circle(circX2, circY2, radius2 * 3); // transparent target circle
+
+      fill(255, 0); 
       noStroke();
-      circle(circX, circY, radius * 2);
+      circle(circX, circY, radius * 2); // draggable circle with the image
       imageMode(CENTER);
       image(letter, circX, circY, windowWidth * 0.2, windowWidth * 0.2);
       imageMode(CORNER);
+
       // If dragging, update the position of the image to follow the mouse
       if (dragging) {
         circX = mouseX + offsetX;
         circY = mouseY + offsetY;
       }
-      if (!storyClickR) {
+      if (!storyClickR) { // if user clicks through story, stop showing it
         image(storyR, 0, 0, windowWidth, windowWidth / 1.3);
         if (
           mouseIsPressed &&
           mouseX > windowWidth * 0.31 &&
-          mouseX < windowWidth * 0.67 &&
-          mouseY > windowHeight * 0.75 &&
-          mouseY < windowHeight * 0.82
+          mouseX < windowWidth * 0.67
         ) {
           storyClickR = true;
         }
       }
-    } else {
+    } else { // transition to second scene when complete
       showRomeo1 = false;
       showRomeo2 = true;
     }
   }
 
   if (showMatch1) {
-    image(match1, 0, 0, windowWidth, windowWidth / 1.3);
-    image(
+    image(match1, 0, 0, windowWidth, windowWidth / 1.3); // show the little match girl first scene
+    image( // put the toolbar at the top
       toolbar,
       windowWidth * 0.29,
       windowHeight * -0.12,
       windowWidth * 0.45,
       windowWidth * 0.4
     );
-    //image(money, circleX, circleY, windowWidth / 4, windowWidth / 5.2);
-    ellipse(circleX, circleY, radius * 5, radius * 5);
+
     if (!Matchdone) {
       fill(255, 50);
-      circle(circX2, circY2, radius2 * 3);
-      // Draw the circle at its current position
-      fill(255, 0); // replace alphaValue with the actual alpha value
+      circle(circX2, circY2, radius2 * 3); // transparent target circle
+
+      fill(255, 0); 
       noStroke();
-      circle(circX, circY, radius * 2);
+      circle(circX, circY, radius * 2); // draggable circle with the image
       imageMode(CENTER);
       image(money, circX, circY, windowWidth / 6, windowWidth / 4);
       imageMode(CORNER);
+
       // If dragging, update the position of the image to follow the mouse
       if (dragging) {
         circX = mouseX + offsetX;
         circY = mouseY + offsetY;
       }
-      if (!storyClickM) {
+      if (!storyClickM) { // if user clicks through story, stop showing it
         image(storyM, 0, 0, windowWidth, windowWidth / 1.3);
         if (
           mouseIsPressed &&
           mouseX > windowWidth * 0.31 &&
-          mouseX < windowWidth * 0.67 &&
-          mouseY > windowHeight * 0.71 &&
-          mouseY < windowHeight * 0.77
+          mouseX < windowWidth * 0.67
         ) {
           storyClickM = true;
         }
       }
-    } else {
+    } else { // transition to second scene when complete
       showMatch1 = false;
       showMatch2 = true;
     }
   }
 
   if (showFrank2) {
-    image(frank2, 0, 0, windowWidth, windowWidth / 1.3);
+    image(frank2, 0, 0, windowWidth, windowWidth / 1.3); // show the second frankenstein scene
   }
 
   if (showTitanic2) {
-    image(titanic2, 0, 0, windowWidth, windowWidth / 1.3);
+    image(titanic2, 0, 0, windowWidth, windowWidth / 1.3);  // show the second titanic scene
   }
 
   if (showRomeo2) {
-    image(romeo2, 0, 0, windowWidth, windowWidth / 1.3);
+    image(romeo2, 0, 0, windowWidth, windowWidth / 1.3); // show the second romeo and juliet scene
   }
 
   if (showMatch2) {
-    image(match2, 0, 0, windowWidth, windowWidth / 1.3);
+    image(match2, 0, 0, windowWidth, windowWidth / 1.3);  // show the second little match girl scene
   }
 
-  if (!showMap && !showSplash) {
+  if (!showMap && !showSplash) { // back arrow button code
     fill(223, 215, 200);
     ellipse(
       windowWidth * 0.08,
@@ -311,70 +300,68 @@ function draw() {
       windowWidth * 0.05
     );
   }
-  if (Frankdone && Romeodone && Matchdone && Titanicdone && showMap) {
-    image(ending, 0, 0, windowWidth, windowWidth / 1.3);
+  if (Frankdone && Romeodone && Matchdone && Titanicdone && showMap) { // if all stories are completed
+    image(ending, 0, 0, windowWidth, windowWidth / 1.3); // show the ending scene
 
-    if (
+    if ( // if the restart button is clicked
       mouseIsPressed &&
       mouseX > windowWidth * 0.32 &&
       mouseX < windowWidth * 0.68 &&
-      mouseY > windowHeight * 0.43 &&
-      mouseY < windowHeight * 0.5
+      mouseY > windowWidth * 0.41 &&
+      mouseY < windowWidth * 0.48
     ) {
-      window.location.reload();
+      window.location.reload(); // reload the page
     }
-    if (
+    if ( // if the about button is clicked
       mouseIsPressed &&
       mouseX > windowWidth * 0.31 &&
       mouseX < windowWidth * 0.68 &&
-      mouseY > windowHeight * 0.55 &&
-      mouseY < windowHeight * 0.62
+      mouseY > windowWidth* 0.53 &&
+      mouseY < windowWidth* 0.59
     ) {
-      showAbout = true;
+      showAbout = true; // show the about scene
     }
-    if (showAbout) {
-      image(about, 0, 0, windowWidth, windowWidth / 1.3);
-      if (
+    if (showAbout) { // if the about scene is showing
+      image(about, 0, 0, windowWidth, windowWidth / 1.3); // show the about scene
+      if ( // if the back button is clicked
         mouseIsPressed &&
         mouseX > windowWidth * 0.35 &&
-        mouseX < windowWidth * 0.65 &&
-        mouseY > windowHeight * 0.53 &&
-        mouseY < windowHeight * 0.58
+        mouseX < windowWidth * 0.65
       ) {
-        showAbout = false;
+        showAbout = false; // hide the about scene
       }
     }
   }
-  fill(0);
+  /*fill(0);
   text(
     "x" + round((mouseX * 100) / windowWidth) + "%",
     windowWidth / 2,
     windowHeight / 2 + 150
   );
   text(
-    "y" + round((mouseY * 100) / windowHeight) + "%",
+    "y" + round((mouseY * 100) / windowWidth) + "%",
     windowWidth / 2,
     windowHeight / 2 + 170
-  );
+  ); */
 }
 
 function mousePressed() {
-  if (
+  if ( // if the user clicks on the frankenstein icon on the map
     !Frankdone &&
     showMap &&
     mouseX > 0 &&
     mouseX < windowWidth / 3 &&
     mouseY > 0 &&
     mouseY < windowHeight / 3
-  ) {
+  ) { // transition to the first frankensteinscene
     showMap = false;
     showFrank1 = true;
     circX2 = windowWidth * 0.45;
-    circY2 = windowHeight * 0.56;
+    circY2 = windowWidth * 0.56;
     circX = windowWidth * 0.42;
-    circY = windowHeight * 0.12;
+    circY = windowWidth * 0.12;
   }
-  if (
+  if ( // back button code
     showFrank1 ||
     showRomeo1 ||
     showMatch1 ||
@@ -401,54 +388,54 @@ function mousePressed() {
       showMap = true;
     }
   }
-  if (
+  if ( // if the user clicks on the titanic icon on the map
     !Titanicdone &&
     showMap &&
     mouseX > windowWidth / 2 &&
     mouseX < windowWidth &&
     mouseY > 0 &&
     mouseY < windowHeight / 3
-  ) {
+  ) { // transition to the first titanic scene
     showMap = false;
     showTitanic1 = true;
     circX2 = windowWidth * 0.35;
-    circY2 = windowHeight * 0.45;
+    circY2 = windowWidth * 0.45;
     circX = windowWidth / 2.5;
-    circY = windowHeight * 0.1;
+    circY = windowWidth * 0.1;
   }
 
-  if (
+  if ( // if the user clicks on the romeo and juliet icon on the map
     !Romeodone &&
     showMap &&
     mouseX > 0 &&
     mouseX < windowWidth / 3 &&
     mouseY > windowHeight / 3 &&
     mouseY < windowHeight
-  ) {
+  ) { // transition to the first romeo and juliet scene
     showMap = false;
     showRomeo1 = true;
     circX2 = windowWidth * 0.36;
-    circY2 = windowHeight * 0.54;
+    circY2 = windowWidth * 0.54;
     circX = windowWidth * 0.44;
-    circY = windowHeight * 0.1;
+    circY = windowWidth * 0.1;
   }
 
-  if (
+  if ( // if the user clicks on the little match girl icon on the map
     !Matchdone &&
     showMap &&
     mouseX > windowWidth / 2 &&
     mouseX < windowWidth &&
     mouseY > windowHeight / 2 &&
     mouseY < windowHeight
-  ) {
+  ) { // transition to the first little match girl scene
     showMap = false;
     showMatch1 = true;
     circX2 = windowWidth * 0.43;
-    circY2 = windowHeight * 0.45;
+    circY2 = windowWidth * 0.45;
     circX = windowWidth * 0.53;
-    circY = windowHeight * 0.08;
+    circY = windowWidth * 0.08;
   }
-  if (
+  if ( // drag and drop
     (!Frankdone || !Romeodone || !Matchdone || !Titanicdone) &&
     (showFrank1 || showRomeo1 || showMatch1 || showTitanic1)
   ) {
@@ -468,7 +455,7 @@ function mouseReleased() {
   if (showFrank1) {
     dragging = false;
 
-    // Check if the small circle is dropped on the big circle
+    // Check if the object is dropped on the big circle
     let d = dist(circX, circY, circX2, circY2);
     if (d < radius2 * 2) {
       Frankdone = true;
@@ -479,7 +466,7 @@ function mouseReleased() {
   if (showRomeo1) {
     dragging = false;
 
-    // Check if the small circle is dropped on the big circle
+    // Check if the object is dropped on the big circle
     let d = dist(circX, circY, circX2, circY2);
     if (d < radius2 * 2) {
       Romeodone = true;
@@ -490,7 +477,7 @@ function mouseReleased() {
   if (showMatch1) {
     dragging = false;
 
-    // Check if the small circle is dropped on the big circle
+    // Check if the object is dropped on the big circle
     let d = dist(circX, circY, circX2, circY2);
     if (d < radius2 * 2) {
       Matchdone = true;
@@ -501,7 +488,7 @@ function mouseReleased() {
   if (showTitanic1) {
     dragging = false;
 
-    // Check if the small circle is dropped on the big circle
+    // Check if the object is dropped on the big circle
     let d = dist(circX, circY, circX2, circY2);
     if (d < radius2 * 2) {
       Titanicdone = true;
