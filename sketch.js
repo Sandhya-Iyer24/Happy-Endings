@@ -31,26 +31,26 @@ let radius;
 let circX2, circY2, radius2; 
 
 function preload() {
-  storyF = loadImage("Assets/storyF.png"); // Load the storyF image
-  storyT = loadImage("Assets/storyT.png"); // Load the storyT image
-  storyR = loadImage("Assets/storyR.png"); // Load the storyR image
-  storyM = loadImage("Assets/storyM.png"); // Load the storyM image
-  toolbar = loadImage("Assets/toolbar.png"); // Load the toolbar image
-  splashScreen = loadImage("Assets/splash.png"); // Load the splash screen image
+  storyF = loadImage("Assets/storyF.PNG"); // Load the storyF image
+  storyT = loadImage("Assets/storyT.PNG"); // Load the storyT image
+  storyR = loadImage("Assets/storyR.PNG"); // Load the storyR image
+  storyM = loadImage("Assets/storyM.PNG"); // Load the storyM image
+  toolbar = loadImage("Assets/toolbar.PNG"); // Load the toolbar image
+  splashScreen = loadImage("Assets/splash.PNG"); // Load the splash screen image
   map = loadImage("Assets/Map.jpg"); // Load the map image
-  titles = loadImage("Assets/titles.png"); // Load the titles image
+  titles = loadImage("Assets/titles.PNG"); // Load the titles image
   frank = loadImage("Assets/Frank.PNG"); // Load the frankenstein image
   titanic = loadImage("Assets/Titanic.PNG"); // Load the titanic image
   romeo = loadImage("Assets/Romeo.PNG"); // Load the romeo and juliet image
   match = loadImage("Assets/Match.PNG"); // Load the little match girl image
-  frankNew = loadImage("Assets/FrankNew.PNG"); // Load the frankenstein image after completion
+  frankNew = loadImage("Assets/frankNew.PNG"); // Load the frankenstein image after completion
   titanicNew = loadImage("Assets/titanicNew.PNG"); // Load the titanic image after completion
   romeoNew = loadImage("Assets/romeoNew.PNG"); // Load the romeo and juliet image after completion
   matchNew = loadImage("Assets/matchNew.PNG"); // Load the little match girk image after completion
   frank1 = loadImage("Assets/FrankSc1.JPG"); // Load the first frankenstein scene
   frank2 = loadImage("Assets/FrankSc2.JPG"); // Load the second frankenstein scene
   titanic1 = loadImage("Assets/TitanicSc1.JPG"); // Load the first titanic scene
-  titanic2 = loadImage("Assets/TitanicSc2.JPG"); // Load the second titanic scene
+  titanic2 = loadImage("Assets/TitanicSc2.jpg"); // Load the second titanic scene
   romeo1 = loadImage("Assets/RomeoSc1.JPG"); // Load the first romoe and juliet scene
   romeo2 = loadImage("Assets/RomeoSc2.JPG"); // Load the second romeo and juliet scene
   match1 = loadImage("Assets/MatchSc1.JPG"); // Load the first little match girl scene
@@ -58,7 +58,7 @@ function preload() {
   money = loadImage("Assets/Money.PNG"); // Load the draggable money icon
   letter = loadImage("Assets/Letter.PNG"); // Load the draggable letter icon
   girl = loadImage("Assets/GirlFrank.png"); // Load the draggable girl frankenstein icon
-  ending = loadImage("Assets/ending.png"); // Load the ending scene image
+  ending = loadImage("Assets/ending.PNG"); // Load the ending scene image
   about = loadImage("Assets/about.png"); // Load the about scene image
   arrow = loadImage("Assets/arrow.png"); // Load the back arrow image
 }
